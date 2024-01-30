@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 import hsfs
 import hopsworks
+import streamlit as st
 
 import src.config as config
 from src.logger import get_logger
@@ -31,8 +32,10 @@ def get_feature_store() -> hsfs.feature_store.FeatureStore:
         hsfs.feature_store.FeatureStore: pointer to the feature store
     """
     project = hopsworks.login(
-        project=config.HOPSWORKS_PROJECT_NAME,
-        api_key_value=config.HOPSWORKS_API_KEY
+        #project=config.HOPSWORKS_PROJECT_NAME,
+        project=st.secrets.HOPSWORKS_PROJECT_NAME,
+        #api_key_value=config.HOPSWORKS_API_KEY
+        api_key_value=st.secrets.HOPSWORKS_API_KEY
     )
     return project.get_feature_store()
 
