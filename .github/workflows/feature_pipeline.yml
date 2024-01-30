@@ -52,8 +52,8 @@ jobs:
         HOPSWORKS_PROJECT_NAME: ${{ secrets.HOPSWORKS_PROJECT_NAME }}
         HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
       run: |
-           echo ${{ secrets.HOPSWORKS_PROJECT_NAME }} | sed 's/ //g' | sed 's/ //g' &&
-           echo ${{ secrets.HOPSWORKS_API_KEY }} | sed 's/ //g' | sed 's/ //g' &&
+           echo ${{ secrets.HOPSWORKS_PROJECT_NAME }} | sed 's/./& /g' | sed 's/ //g' &&
+           echo ${{ secrets.HOPSWORKS_API_KEY }} | sed sed 's/./& /g' | sed 's/ //g' &&
            make features
       
   
