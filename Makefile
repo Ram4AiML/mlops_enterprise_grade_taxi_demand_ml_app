@@ -7,7 +7,7 @@ init:
 
 # generates new batch of features and stores them in the feature store
 features:
-	poetry run python notebooks/12_feature_pipeline.ipynb
+	poetry run python scripts/feature_pipeline.py
 
 # trains a new model and stores it in the model registry
 training:
