@@ -4,7 +4,6 @@ import hopsworks
 # from hsfs.feature_store import FeatureStore
 import pandas as pd
 import numpy as np
-import streamlit as st
 
 import src.config as config
 from src.feature_store_api import get_feature_store, get_or_create_feature_view
@@ -13,10 +12,8 @@ from src.config import FEATURE_VIEW_METADATA
 def get_hopsworks_project() -> hopsworks.project.Project:
 
     return hopsworks.login(
-        #project=config.HOPSWORKS_PROJECT_NAME,
-        project=st.secrets.HOPSWORKS_PROJECT_NAME,
-        #api_key_value=config.HOPSWORKS_API_KEY
-        api_key_value=st.secrets.HOPSWORKS_API_KEY
+        project=config.HOPSWORKS_PROJECT_NAME,
+        api_key_value=config.HOPSWORKS_API_KEY
     )
 
 # def get_feature_store() -> FeatureStore:
